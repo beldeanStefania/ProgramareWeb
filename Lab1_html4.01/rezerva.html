@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ro">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Rezervă Teren</title>
+</head>
+<body>
+
+<h2 align="center">Rezervă un Teren</h2>
+
+<div align="center">
+<form name="rezervaForm">
+    <fieldset>
+        <legend><strong>Detalii Rezervare</strong></legend>
+
+        <table>
+            <tr>
+                <td><b>Nume:</b></td>
+                <td><input type="text" name="nume" size="20" maxlength="50" value=""></td>
+            </tr>
+            <tr>
+                <td><b>Data (format ZZ/LL/AAAA):</b></td>
+                <td><input type="text" name="data" size="10" maxlength="10" value=""></td>
+            </tr>
+            <tr>
+                <td><b>Ora Început:</b></td>
+                <td><input type="text" name="ora_inceput" size="5" maxlength="5" value=""></td>
+            </tr>
+            <tr>
+                <td><b>Durată (ore):</b></td>
+                <td><input type="text" name="durata" size="2" maxlength="2" value=""></td>
+            </tr>
+        </table>
+
+        <p>
+            <b>Teren Dorit:</b><br>
+            <input type="radio" name="teren"> Interior<br>
+            <input type="radio" name="teren"> Exterior
+        </p>
+
+        <p>
+            <b>Echipament suplimentar:</b><br>
+            <input type="checkbox" name="mingi"> Mingi suplimentare<br>
+            <input type="checkbox" name="rachete"> Rachete de rezervă
+        </p>
+
+        <p>
+            <input type="submit" value="Trimite Rezervarea">
+        </p>
+    </fieldset>
+</form>
+</div>
+
+</body>
+</html>

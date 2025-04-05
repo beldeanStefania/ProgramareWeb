@@ -1,0 +1,86 @@
+.page-title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.8em;
+    color: #333;
+  }
+
+  
+  .terenuri {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #EEEEEE;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+  }
+
+  .terenuri thead tr {
+    background-color: #CCCCCC;
+  }
+
+  .terenuri th,
+  .terenuri td {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    position: relative; 
+  }
+
+  
+  .spacer {
+    height: 40px;
+  }
+
+  .terenuri-antrenament {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+  }
+  
+  .terenuri-antrenament thead tr {
+    background-color: #cccccc;
+  }
+  
+  .terenuri-antrenament th,
+  .terenuri-antrenament td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    position: relative;
+  }
+
+  .terenuri-antrenament td {
+    cursor: pointer;
+  }
+  
+  .image-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .image-container img {
+    width: 100px;
+    height: auto;
+    border: 1px solid #ccc;
+  }
+  
+  .tooltip {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    white-space: nowrap;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+
+  .terenuri .image-container:hover .tooltip,
+.terenuri td:hover .tooltip {
+  display: block;
+}

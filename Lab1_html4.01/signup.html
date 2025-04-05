@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ro">
+<head>
+    
+    <title>Înregistrare</title>
+</head>
+<body>
+
+<h2 align="center">Creare Cont Nou</h2>
+
+<div align="center">
+<form name="signupForm">
+    <fieldset>
+        <legend><strong>Date personale</strong></legend>
+
+        <p>
+            <label for="nume"><b>Nume:</b></label><br>
+            <input type="text" name="nume" id="nume" size="30" maxlength="50" value="">
+        </p>
+
+        <p>
+            <label for="prenume"><b>Prenume:</b></label><br>
+            <input type="text" name="prenume" id="prenume" size="30" maxlength="50" value="">
+        </p>
+
+        <p>
+            <label for="email"><b>E-mail:</b></label><br>
+            <input type="text" name="email" id="email" size="30" maxlength="100" value="">
+        </p>
+
+        <p>
+            <label for="telefon"><b>Telefon:</b></label><br>
+            <input type="text" name="telefon" id="telefon" size="15" maxlength="10" value="">
+        </p>
+
+        <p>
+            <label for="parola"><b>Parolă:</b></label><br>
+            <input type="password" name="parola" id="parola" size="20" maxlength="12" value="">
+        </p>
+
+        <p>
+            <label for="parola2"><b>Confirmare Parolă:</b></label><br>
+            <input type="password" name="parola2" id="parola2" size="20" maxlength="12" value="">
+        </p>
+
+        <p>
+            <label for="descriere"><b>Descriere (folosiți diacritice):</b></label><br>
+            <textarea name="descriere" id="descriere" cols="40" rows="3">
+Scrieți aici câteva informații despre dumneavoastră...
+            </textarea>
+        </p>
+
+    </fieldset>
+
+    <fieldset>
+        <legend><strong>Detalii cont</strong></legend>
+
+        <p>
+            <b>Gen:</b><br>
+            <input type="radio" name="gen" value="masculin"> Masculin<br>
+            <input type="radio" name="gen" value="feminin"> Feminin<br>
+        </p>
+		
+		<p>
+            <b>Rol:</b><br>
+            <input type="radio" name="rol" value="jucator"> Jucător<br>
+            <input type="radio" name="rol" value="admin"> Administrator<br>
+        </p>
+
+        <p>
+            <b>Preferințe Teren:</b><br>
+            <select name="tip_teren" size="1">
+                <option value="exterior" selected>Exterior</option>
+                <option value="interior">Interior</option>
+            </select>
+        </p>
+
+        <p>
+            <b>Activități:</b><br>
+            <select name="activitati" multiple size="3">
+                <option value="antrenament">Antrenament</option>
+                <option value="competitii">Competiții</option>
+                <option value="socializare">Socializare</option>
+            </select>
+        </p>
+
+        <p>
+            <input type="checkbox" name="newsletter"> Abonează-te la newsletter
+        </p>
+
+    </fieldset>
+    <p>
+        <input type="submit" value="Înregistrare">
+    </p>
+
+</form>
+</div>
+
+</body>
+</html>

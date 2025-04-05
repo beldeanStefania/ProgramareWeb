@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+  <div class="wrapper">
+    <header>
+      <div class="header-content">
+        <figure class="logo">
+          <img src="transparent_image1.png" alt="Logo Club de Tenis">
+        </figure>
+      </div>
+    </header>
+    <div class="container">
+      <nav class="vertical-menu">
+        <ul>
+          <li><a href="terenuri.html" title="Listă terenuri">Lista Terenuri</a></li>
+          <li class="has-submenu">
+            <a href="rezerva.html" title="Rezervă teren">Rezervă Teren</a>
+            <ul class="submenu">
+              <li><a href="noua_rezervare.html" title="Rezervare nouă">Noua rezervare</a></li>
+              <li><a href="modifica_rezervare.html" title="Modificare rezervare">Modificare rezervare</a></li>
+            </ul>
+          </li>
+          <li><a href="login.html" title="Autentificare">Login</a></li>
+          <li><a href="signup.html" title="Înregistrare">Sign Up</a></li>
+        </ul>
+      </nav>
+      <main>
+        <header>
+          <h2>Login</h2>
+        </header>
+        <section>
+          <h3>Formular Login</h3>
+          <form name="loginForm">
+            <fieldset>
+              <legend><strong>Login</strong></legend>
+              
+              <p>
+                <label for="username"><strong>Nume de utilizator:</strong></label><br>
+                <input type="text" id="username" name="username" size="20" maxlength="15" value="">
+              </p>
+              
+              <p>
+                <label for="password"><strong>Parolă:</strong></label><br>
+                <input type="password" id="password" name="password" size="20" maxlength="12" value="">
+              </p>
+              
+              <p>
+                <strong>Rol:</strong><br>
+                <input type="radio" id="rol_jucator" name="rol" value="jucator">
+                <label for="rol_jucator">Jucător</label><br>
+                <input type="radio" id="rol_admin" name="rol" value="admin">
+                <label for="rol_admin">Administrator</label>
+              </p>
+              
+              <p>
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Ține-mă minte</label>
+              </p>
+              
+              <p>
+                <input type="submit" value="Autentificare">
+              </p>
+            </fieldset>
+          </form>
+        </section>
+      </main>
+    </div>
+  
+</body>
+</html>

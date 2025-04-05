@@ -1,0 +1,509 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding-bottom: 50px; 
+}
+
+header {
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  padding: 10px;
+}
+
+.logo img {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.5s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.container {
+  display: flex;
+  flex: 1;
+}
+
+.vertical-menu {
+  width: 200px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.vertical-menu ul {
+  list-style-type: none;
+}
+
+.vertical-menu ul li {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.vertical-menu ul li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.5s ease, border-left 0.5s ease;
+}
+
+.vertical-menu ul li a:hover {
+  background-color: #ddd;
+  border-left: 5px solid #4CAF50;
+}
+
+.vertical-menu ul li.has-submenu ul.submenu {
+  position: absolute;
+  left: 200px; 
+  top: 0;
+  background-color: #f9f9f9;
+  min-width: 150px;
+  list-style-type: none;
+  padding: 0;
+  transform: translateX(-20px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+
+.vertical-menu ul li.has-submenu:hover ul.submenu {
+  visibility: visible;
+  opacity: 1;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .vertical-menu {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .vertical-menu ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .vertical-menu ul li {
+    margin: 5px;
+  }
+  
+  main {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header, footer {
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .logo img {
+    width: 60px; 
+    height: 60px;
+  }
+  
+  .image-slider {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  
+  .large-image-container {
+    width: 100%;
+    height: auto; 
+  }
+  
+  .thumbnail {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 480px) {
+  .image-slider {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  
+  .large-image-container {
+    width: 100%;
+    height: auto; 
+    aspect-ratio: 3 / 4; 
+  }
+  
+  .thumbnails {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Stiluri specifice pentru pagina de login */
+.login-page main {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.login-page section h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.login-page form fieldset {
+  border: 1px solid #ccc;
+  padding: 25px;
+}
+
+.login-page form legend {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.login-page form p {
+  margin-bottom: 25px;
+}
+
+.login-page form input[type="text"],
+.login-page form input[type="password"],
+.login-page form input[type="radio"],
+.login-page form input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.login-page form input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-page form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+/* Stiluri specifice pentru pagina de modificare rezervare */
+.modifica-rezervare-page main {
+  padding: 20px;
+}
+
+.modificare-form {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.modificare-form fieldset {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.modificare-form legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.modificare-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.modificare-form input[type="text"],
+.modificare-form input[type="email"],
+.modificare-form input[type="tel"],
+.modificare-form input[type="date"],
+.modificare-form input[type="time"],
+.modificare-form select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.modificare-form input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.modificare-form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Stiluri specifice pentru pagina Noua Rezervare */
+.noua-rezervare-page main {
+  padding: 20px;
+}
+
+.rezervare-form {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.rezervare-form fieldset {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.rezervare-form legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.rezervare-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.rezervare-form input[type="text"],
+.rezervare-form input[type="email"],
+.rezervare-form input[type="tel"],
+.rezervare-form input[type="date"],
+.rezervare-form input[type="time"],
+.rezervare-form select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.rezervare-form input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.rezervare-form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+/* Stiluri specifice pentru pagina Lista Terenuri */
+.terenuri-page main {
+  padding: 20px;
+}
+
+.page-title {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.8em;
+  color: #333;
+}
+
+.terenuri,
+.terenuri-antrenament {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+.terenuri thead tr,
+.terenuri-antrenament thead tr {
+  background-color: #CCCCCC;
+}
+
+.terenuri th, .terenuri td,
+.terenuri-antrenament th, .terenuri-antrenament td {
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+.spacer {
+  height: 40px;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.image-container img {
+  width: 100px;
+  height: auto;
+  border: 1px solid #ccc;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  white-space: nowrap;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.tooltip-parent:hover .tooltip,
+.image-container:hover .tooltip,
+.terenuri td:hover .tooltip {
+  display: block;
+}
+
+
+/* Stiluri specifice pentru pagina de Înregistrare */
+.signup-page main {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.signup-page header {
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #9C27B0, #E91E63);
+  padding: 10px;
+  color: #fff;
+}
+
+.signup-page section h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.signup-page form fieldset {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.signup-page form legend {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.signup-page form p {
+  margin-bottom: 15px;
+}
+
+.signup-page form input[type="text"],
+.signup-page form input[type="password"],
+.signup-page form textarea,
+.signup-page form select {
+  width: 100%;
+  padding: 11px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.signup-page form input[type="radio"],
+.signup-page form input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.signup-page form input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-page form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.sprite-input {
+  background-image: url('transparent_image1.png'); 
+  background-repeat: no-repeat;
+  background-size: 100px auto; 
+  padding-left: 30px; 
+}
+
+.email-icon {
+  background-position: 0 0; 
+}
+
+.phone-icon {
+  background-position: -30px 0; 
+}

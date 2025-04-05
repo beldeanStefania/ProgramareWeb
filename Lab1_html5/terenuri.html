@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista Terenuri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="terenuri-page">
+  <div class="wrapper">
+    <header>
+      <div class="header-content">
+        <figure class="logo">
+          <img src="transparent_image1.png" alt="Logo Club de Tenis">
+        </figure>
+      </div>
+    </header>
+
+    <div class="container">
+      <nav class="vertical-menu">
+        <ul>
+          <li><a href="terenuri.html" title="Listă terenuri">Lista Terenuri</a></li>
+          <li class="has-submenu">
+            <a href="rezerva.html" title="Rezervă teren">Rezervă Teren</a>
+            <ul class="submenu">
+              <li><a href="noua_rezervare.html" title="Rezervare nouă">Noua rezervare</a></li>
+              <li><a href="modifica_rezervare.html" title="Modificare rezervare">Modificare rezervare</a></li>
+            </ul>
+          </li>
+          <li><a href="login.html" title="Autentificare">Login</a></li>
+          <li><a href="signup.html" title="Înregistrare">Sign Up</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <h2 class="page-title">Lista Terenuri Disponibile</h2>
+
+        <table class="terenuri">
+          <thead>
+            <tr>
+              <th>Nume Teren</th>
+              <th>Tip</th>
+              <th>Capacitate</th>
+              <th>Imagine</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="tooltip-parent">
+                  Teren Central
+                  <span class="tooltip">Teren central, cu facilități moderne.</span>
+                </span>
+              </td>
+              <td>
+                <span class="tooltip-parent">
+                  Exterior
+                  <span class="tooltip">Zona deschisă, potrivită pentru evenimente în aer liber.</span>
+                </span>
+              </td>
+              <td>
+                <span class="tooltip-parent">
+                  500 spectatori
+                  <span class="tooltip">Capacitate mare pentru evenimente importante.</span>
+                </span>
+              </td>
+              <td>
+                <div class="image-container">
+                  <img src="transparent_image.jpg" alt="Teren Central">
+                  <div class="tooltip">Imagine teren Central</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="tooltip-parent">
+                  Teren Mic 1
+                  <span class="tooltip">Teren de dimensiuni reduse, ideal pentru antrenamente.</span>
+                </span>
+              </td>
+              <td>
+                <span class="tooltip-parent">
+                  Interior
+                  <span class="tooltip">Spațiu acoperit, protejat de intemperii.</span>
+                </span>
+              </td>
+              <td>
+                <span class="tooltip-parent">
+                  50 spectatori
+                  <span class="tooltip">Capacitate mică, potrivit pentru grupuri restrânse.</span>
+                </span>
+              </td>
+              <td>
+                <div class="image-container">
+                  <img src="transparent_image1.png" alt="Teren Mic 1">
+                  <div class="tooltip">Imagine teren Mic 1</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="spacer"></div>
+
+        <table class="terenuri-antrenament">
+          <colgroup>
+            <col style="width: 50%;">
+            <col style="width: 50%;">
+          </colgroup>
+          <thead>
+            <tr>
+              <th colspan="2">Terenuri de Antrenament</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="tooltip-parent">
+                  Coloana 1
+                  <span class="tooltip">Informații suplimentare coloana 1</span>
+                </span>
+              </td>
+              <td>
+                <span class="tooltip-parent">
+                  Coloana 2
+                  <span class="tooltip">Informații suplimentare coloana 2</span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="training-info">
+                <span class="tooltip-parent">
+                  Tipurile de teren pentru antrenament
+                  <span class="tooltip">Aceste terenuri sunt special amenajate pentru exerciții fizice și antrenamente.</span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="nested-table">
+                <table class="inner-table">
+                  <thead>
+                    <tr>
+                      <th>Nume</th>
+                      <th>Acoperit</th>
+                      <th>Iluminat</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="tooltip-parent">
+                          Teren A
+                          <span class="tooltip">Teren A: Nu este acoperit, dar beneficiază de iluminat bun.</span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class="tooltip-parent">
+                          Nu
+                          <span class="tooltip">Terenul nu dispune de acoperiș.</span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class="tooltip-parent">
+                          Da
+                          <span class="tooltip">Sistem de iluminat modern.</span>
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="tooltip-parent">
+                          Teren B
+                          <span class="tooltip">Teren B: Este acoperit și iluminat corespunzător.</span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class="tooltip-parent">
+                          Da
+                          <span class="tooltip">Acoperire completă.</span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class="tooltip-parent">
+                          Da
+                          <span class="tooltip">Iluminare pentru toate condițiile.</span>
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Club de Tenis. Toate drepturile rezervate.</p>
+    </footer>
+  </div>
+</body>
+</html>

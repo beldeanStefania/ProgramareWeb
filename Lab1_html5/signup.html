@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Înregistrare</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="signup-page">
+  <div class="wrapper">
+    <header>
+      <div class="header-content">
+        <figure class="logo">
+          <img src="transparent_image1.png" alt="Logo Club de Tenis" />
+        </figure>
+      </div>
+    </header>
+
+    <div class="container">
+      <nav class="vertical-menu">
+        <ul>
+          <li><a href="terenuri.html" title="Listă terenuri">Lista Terenuri</a></li>
+          <li class="has-submenu">
+            <a href="rezerva.html" title="Rezervă teren">Rezervă Teren</a>
+            <ul class="submenu">
+              <li><a href="noua_rezervare.html" title="Rezervare nouă">Noua rezervare</a></li>
+              <li><a href="modifica_rezervare.html" title="Modificare rezervare">Modificare rezervare</a></li>
+            </ul>
+          </li>
+          <li><a href="login.html" title="Autentificare">Login</a></li>
+          <li><a href="signup.html" title="Înregistrare">Sign Up</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <section class="signup-form">
+          <h2><i class="fas fa-user-plus"></i> Creare Cont Nou</h2>
+          <form name="signupForm">
+            <fieldset>
+              <legend><strong>Date personale</strong></legend>
+              <p>
+                <label for="nume"><strong><i class="fas fa-user input-icon"></i> Nume:</strong></label><br/>
+                <input type="text" name="nume" id="nume" />
+              </p>
+              <p>
+                <label for="prenume"><strong><i class="fas fa-user input-icon"></i> Prenume:</strong></label><br/>
+                <input type="text" name="prenume" id="prenume" />
+              </p>
+              <p>
+                <label for="email"><strong><i class="fas fa-envelope input-icon"></i> E-mail:</strong></label><br/>
+                <input type="text" name="email" id="email" class="sprite-input email-icon" />
+              </p>
+              <p>
+                <label for="telefon"><strong><i class="fas fa-phone input-icon"></i> Telefon:</strong></label><br/>
+                <input type="text" name="telefon" id="telefon" class="sprite-input phone-icon" />
+              </p>
+              <p>
+                <label for="parola"><strong><i class="fas fa-lock input-icon"></i> Parolă:</strong></label><br/>
+                <input type="password" name="parola" id="parola" />
+              </p>
+              <p>
+                <label for="parola2"><strong><i class="fas fa-lock input-icon"></i> Confirmare Parolă:</strong></label><br/>
+                <input type="password" name="parola2" id="parola2" />
+              </p>
+              <p>
+                <label for="descriere"><strong><i class="fas fa-info-circle input-icon"></i> Descriere:</strong></label><br/>
+                <textarea name="descriere" id="descriere" rows="3">Scrieți aici câteva informații despre dumneavoastră...</textarea>
+              </p>
+            </fieldset>
+
+            <fieldset>
+              <legend><strong>Detalii cont</strong></legend>
+              <p>
+                <strong>Gen:</strong><br />
+                <input type="radio" name="gen" value="masculin" id="gen_masculin" />
+                <label for="gen_masculin">Masculin</label><br />
+                <input type="radio" name="gen" value="feminin" id="gen_feminin" />
+                <label for="gen_feminin">Feminin</label>
+              </p>
+              <p>
+                <strong>Rol:</strong><br />
+                <input type="radio" name="rol" value="jucator" id="rol_jucator" />
+                <label for="rol_jucator">Jucător</label><br />
+                <input type="radio" name="rol" value="admin" id="rol_admin" />
+                <label for="rol_admin">Administrator</label>
+              </p>
+              <p>
+                <strong>Preferințe Teren:</strong><br />
+                <select name="tip_teren">
+                  <option value="exterior" selected>Exterior</option>
+                  <option value="interior">Interior</option>
+                </select>
+              </p>
+              <p>
+                <strong>Activități:</strong><br />
+                <select name="activitati" multiple size="3">
+                  <option value="antrenament">Antrenament</option>
+                  <option value="competitii">Competiții</option>
+                  <option value="socializare">Socializare</option>
+                </select>
+              </p>
+              <p>
+                <input type="checkbox" name="newsletter" id="newsletter" />
+                <label for="newsletter"><i class="fas fa-envelope-open-text input-icon"></i> Abonează-te la newsletter</label>
+              </p>
+            </fieldset>
+
+            <p>
+              <input type="submit" value="Înregistrare" />
+            </p>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Club de Tenis. Toate drepturile rezervate.</p>
+    </footer>
+  </div>
+</body>
+</html>

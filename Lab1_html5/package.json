@@ -1,0 +1,14 @@
+{
+    "name": "lab1-html5",
+    "version": "1.0.0",
+    "description": "Proiect HTML5 cu slider de imagini",
+    "main": "index.html",
+    "scripts": {
+      "start": "live-server"
+    },
+    "license": "ISC",
+    "devDependencies": {
+      "live-server": "^1.2.1"
+    }
+  }
+  

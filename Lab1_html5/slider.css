@@ -1,0 +1,71 @@
+.image-slider {
+display: flex;
+flex-direction: column-reverse;
+align-items: center;
+gap: 15px;
+padding: 20px;
+max-width: 600px;
+margin: 40px auto 0;
+background: #ffffff;
+border-radius: 10px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.large-image-container {
+width: 300px;
+height: 400px;
+border-radius: 8px;
+background-image: url("img5.jpg");
+background-size: cover;
+background-position: center;
+transition: background-image 0.4s ease-in-out;
+box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnails {
+display: flex;
+gap: 15px;
+justify-content: center;
+}
+
+.thumbnail {
+width: 90px;
+height: 90px;
+border-radius: 8px;
+overflow: hidden;
+transition: transform 0.3s ease, border 0.3s ease;
+border: 3px solid transparent;
+cursor: pointer;
+}
+
+.thumbnail img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+transform: scale(1.1);
+border-color: #ff5733;
+}
+
+.image-slider:has(.thumbnail:nth-child(1):hover) .large-image-container {
+background-image: url("img1.jpg");
+}
+
+.image-slider:has(.thumbnail:nth-child(2):hover) .large-image-container {
+background-image: url("img2.jpg");
+}
+
+.image-slider:has(.thumbnail:nth-child(3):hover) .large-image-container {
+background-image: url("img3.jpg");
+}
+
+.image-slider:has(.thumbnail:nth-child(4):hover) .large-image-container {
+background-image: url("img4.jpg");
+}
+
+.image-slider:has(.thumbnail:nth-child(5):hover) .large-image-container {
+background-image: url("img5.jpg");
+}

@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+
+body.noua-rezervare-page {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.main-nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.main-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+.rezervare-form {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.rezervare-form fieldset {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.rezervare-form legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.rezervare-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Forțăm input-urile și select-ul să ocupe întreaga lățime */
+.rezervare-form input[type="text"],
+.rezervare-form input[type="email"],
+.rezervare-form input[type="tel"],
+.rezervare-form input[type="date"],
+.rezervare-form input[type="time"],
+.rezervare-form select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.rezervare-form input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.rezervare-form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
