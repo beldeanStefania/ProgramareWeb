@@ -35,7 +35,7 @@
       <main>
         <h2 class="page-title">Lista Terenuri Disponibile</h2>
 
-        <table class="terenuri">
+        <table class="terenuri sortable">
           <thead>
             <tr>
               <th>Nume Teren</th>
@@ -199,5 +199,53 @@
       <p>&copy; 2025 Club de Tenis. Toate drepturile rezervate.</p>
     </footer>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      function makeTableSortable(table) {
+        let headers = table.querySelectorAll("thead th");
+        
+        headers.forEach(function(th, colIndex) {
+          th.setAttribute("data-sort-order", "asc");
+          
+          th.addEventListener("click", function() {
+            let currentOrder = th.getAttribute("data-sort-order");
+            let newOrder = currentOrder === "asc" ? "desc" : "asc";
+            th.setAttribute("data-sort-order", newOrder);
+            
+            let tbody = table.querySelector("tbody");
+            let rows = Array.from(tbody.querySelectorAll("tr"));
+            
+            rows.sort(function(a, b) {
+              let cellA = a.querySelectorAll("td")[colIndex].textContent.trim();
+              let cellB = b.querySelectorAll("td")[colIndex].textContent.trim();
+              
+              let numA = parseFloat(cellA.replace(/[^\d.-]/g, ''));
+              let numB = parseFloat(cellB.replace(/[^\d.-]/g, ''));
+              let isNumeric = !isNaN(numA) && !isNaN(numB);
+              
+              if (isNumeric) {
+                return newOrder === "asc" ? numA - numB : numB - numA;
+              } else {
+                cellA = cellA.toLowerCase();
+                cellB = cellB.toLowerCase();
+                if (cellA < cellB) return newOrder === "asc" ? -1 : 1;
+                if (cellA > cellB) return newOrder === "asc" ? 1 : -1;
+                return 0;
+              }
+            });
+            
+            rows.forEach(function(row) {
+              tbody.appendChild(row);
+            });
+          });
+        });
+      }
+      let sortableTables = document.querySelectorAll("table.sortable");
+      sortableTables.forEach(function(table) {
+        makeTableSortable(table);
+      });
+    });
+    </script>
 </body>
 </html>

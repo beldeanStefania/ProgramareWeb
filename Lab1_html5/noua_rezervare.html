@@ -71,6 +71,22 @@
                   <option value="teren3">Teren Mic 2</option>
                 </select>
               </p>
+              <p>
+                <label for="county"><strong>Județ:</strong></label>
+                <select id="county" name="county">
+                  <option value="">Selectează un județ</option>
+                  <option value="Cluj">Cluj</option>
+                  <option value="Bucuresti">București</option>
+                  <option value="Iasi">Iași</option>
+                  <option value="Timis">Timiș</option>
+                </select>
+              </p>
+              <p>
+                <label for="city"><strong>Oraș:</strong></label>
+                <select id="city" name="city">
+                  <option value="">Selectează un oraș</option>
+                </select>
+              </p>
             </fieldset>
             <p>
               <input type="submit" value="Trimite Rezervarea">
@@ -84,5 +100,179 @@
       <p>&copy; 2025 Club de Tenis. Toate drepturile rezervate.</p>
     </footer>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const countySelect = document.getElementById("county");
+      const citySelect = document.getElementById("city");
+
+      const countyCities = {
+        "Cluj": ["Cluj-Napoca", "Turda", "Dej"],
+        "Bucuresti": ["Sector 1", "Sector 2", "Sector 3", "Sector 4", "Sector 5", "Sector 6"],
+        "Iasi": ["Iași", "Pașcani", "Hârlău"],
+        "Timis": ["Timișoara", "Lugoj", "Sânnicolau Mare"]
+      };
+
+      function updateCities() {
+        citySelect.innerHTML = '<option value="">Selectează un oraș</option>';
+        const selectedCounty = countySelect.value;
+        if (countyCities[selectedCounty]) {
+          countyCities[selectedCounty].forEach(function(city) {
+            const option = document.createElement("option");
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+          });
+        }
+      }
+
+      // La schimbarea județului, actualizăm lista de orașe
+      countySelect.addEventListener("change", updateCities);
+    });
+  </script>
+
+  <!-- Funcția de validare a datei calendaristice -->
+  <script>
+  function valideaza(dateStr, formatStr) {
+    // Se desparte formatul și data după delimitatorul "/"
+    const formatParts = formatStr.split("/");
+    const dateParts = dateStr.split("/");
+
+    // Dacă numărul de părți diferă, data este invalidă
+    if (formatParts.length !== dateParts.length) {
+      return "Data invalida";
+    }
+
+    let day, month, year;
+
+    // Parcurgem fiecare parte conform formatului
+    for (let i = 0; i < formatParts.length; i++) {
+      const token = formatParts[i];
+      const value = dateParts[i];
+
+      if (token === "zz") {
+        day = parseInt(value, 10);
+      } else if (token === "ll") {
+        month = parseInt(value, 10);
+      } else if (token === "aaaa") {
+        year = parseInt(value, 10);
+      } else if (token === "aa") {
+        year = parseInt(value, 10);
+        // Interpretăm anii cu 2 cifre: <50 => 2000+year, >=50 => 1900+year
+        if (year < 50) {
+          year += 2000;
+        } else {
+          year += 1900;
+        }
+      } else {
+        return "Data invalida";
+      }
+    }
+
+    // Verificăm dacă ziua, luna și anul sunt numere valide
+    if (isNaN(day) || isNaN(month) || isNaN(year)) {
+      return "Data invalida";
+    }
+
+    // Verificăm dacă luna este între 1 și 12
+    if (month < 1 || month > 12) {
+      return "Data invalida";
+    }
+
+    // Determinăm numărul maxim de zile în funcție de lună și an
+    let maxDay;
+    if ([1, 3, 5, 7, 8, 10, 12].indexOf(month) !== -1) {
+      maxDay = 31;
+    } else if ([4, 6, 9, 11].indexOf(month) !== -1) {
+      maxDay = 30;
+    } else if (month === 2) {
+      // Verificare an bisect: divizibil cu 4, dar nu cu 100, sau divizibil cu 400
+      const isLeap = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+      maxDay = isLeap ? 29 : 28;
+    }
+
+    // Verificăm dacă ziua este în intervalul corect
+    if (day < 1 || day > maxDay) {
+      return "Data invalida";
+    }
+
+    return "Data valida";
+  }
+
+  // Exemple de utilizare:
+  console.log(valideaza('31/01/2006', 'zz/ll/aaaa'));  
+  console.log(valideaza('02/29/1997', 'll/zz/aaaa'));  
+  console.log(valideaza('15/08/22', 'zz/ll/aa'));       
+  </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    function showIndicator(input, isValid) {
+      let indicator = input.nextElementSibling;
+      if (!indicator || !indicator.classList.contains("status-indicator")) {
+        indicator = document.createElement("span");
+        indicator.className = "status-indicator";
+        indicator.style.marginLeft = "10px"; // spațiere între input și indicator
+        input.parentNode.insertBefore(indicator, input.nextSibling);
+      }
+      indicator.textContent = "●";
+      indicator.style.color = isValid ? "green" : "red";
+    }
+  
+    function validateCustomEmail(email) {
+      const regex = /^(?=[^@]*@[^@]*$)(?=.*\.)[a-zA-Z0-9_@.]+$/;
+      return regex.test(email);
+    }
+  
+    function validatePhone(phone) {
+      const regex = /^\(\+40\)\s?\d{3}\s?\d{3}\s?\d{3}$/;
+      return regex.test(phone);
+    }
+  
+    var forms = document.querySelectorAll("form");
+    forms.forEach(function(form) {
+      form.addEventListener("submit", function(event) {
+        // Prevenim trimiterea imediată a formularului
+        event.preventDefault();
+        let isValidForm = true;
+  
+        // Obținem toate elementele de input, select și textarea din formular
+        var fields = form.querySelectorAll("input, select, textarea");
+        fields.forEach(function(field) {
+          let validField = true;
+          const value = field.value.trim();
+  
+          // Pentru câmpurile required, verificăm dacă nu sunt goale
+          if (field.hasAttribute("required") && value === "") {
+            validField = false;
+          } else {
+            // Validare personalizată pentru email
+            if (field.type === "email") {
+              validField = validateCustomEmail(value);
+            }
+            // Validare pentru telefon (dacă se completează)
+            else if (field.type === "tel" && value !== "") {
+              validField = validatePhone(value);
+            }
+          }
+          // Afișează indicatorul lângă câmp
+          showIndicator(field, validField);
+          // Dacă orice câmp este invalid, formularul nu este valid
+          if (!validField) {
+            isValidForm = false;
+          }
+        });
+  
+        if (isValidForm) {
+          // Dacă toate câmpurile sunt valide, se poate trimite formularul.
+          form.submit();
+        } else {
+          alert("Vă rugăm să corectați erorile din formular.");
+        }
+      });
+    });
+  });
+  </script>
+  
+
 </body>
 </html>

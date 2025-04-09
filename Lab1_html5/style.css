@@ -16,11 +16,6 @@ html, body {
   padding-bottom: 50px; 
 }
 
-header {
-  background: linear-gradient(90deg, #4CAF50, #8BC34A);
-  padding: 10px;
-}
-
 .logo img {
   width: 80px;
   height: 80px;
@@ -184,58 +179,6 @@ img {
   }
 }
 
-/* Stiluri specifice pentru pagina de login */
-.login-page main {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #f7f7f7;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.login-page section h3 {
-  text-align: center;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.login-page form fieldset {
-  border: 1px solid #ccc;
-  padding: 25px;
-}
-
-.login-page form legend {
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
-.login-page form p {
-  margin-bottom: 25px;
-}
-
-.login-page form input[type="text"],
-.login-page form input[type="password"],
-.login-page form input[type="radio"],
-.login-page form input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-.login-page form input[type="submit"] {
-  background-color: #4CAF50;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.login-page form input[type="submit"]:hover {
-  background-color: #45a049;
-}
-
-
-/* Stiluri specifice pentru pagina de modificare rezervare */
 .modifica-rezervare-page main {
   padding: 20px;
 }
@@ -294,7 +237,6 @@ img {
   background-color: #45a049;
 }
 
-/* Stiluri specifice pentru pagina Noua Rezervare */
 .noua-rezervare-page main {
   padding: 20px;
 }
@@ -424,9 +366,9 @@ img {
 }
 
 
-/* Stiluri specifice pentru pagina de Înregistrare */
+.login-page main,
 .signup-page main {
-  max-width: 700px;
+  max-width: 500px;
   margin: 40px auto;
   padding: 20px;
   background-color: #f7f7f7;
@@ -434,13 +376,14 @@ img {
   border-radius: 5px;
 }
 
-.signup-page header {
-  text-align: center;
-  margin-bottom: 20px;
-  background: linear-gradient(90deg, #9C27B0, #E91E63);
+header {
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
   padding: 10px;
-  color: #fff;
+  display: flex;
+  align-items: center; /* Aliniează vertical elementele */
+  justify-content: flex-start; /* Logo-ul la stânga */
 }
+
 
 .signup-page section h2 {
   text-align: center;
@@ -448,21 +391,26 @@ img {
   color: #333;
 }
 
+.login-page form fieldset,
 .signup-page form fieldset {
   border: 1px solid #ccc;
   padding: 15px;
   margin-bottom: 20px;
 }
 
+.login-page form legend,
 .signup-page form legend {
   font-size: 1.2em;
   font-weight: bold;
 }
 
+.login-page form p,
 .signup-page form p {
   margin-bottom: 15px;
 }
 
+.login-page form input[type="text"],
+.login-page form input[type="password"], 
 .signup-page form input[type="text"],
 .signup-page form input[type="password"],
 .signup-page form textarea,
@@ -480,6 +428,7 @@ img {
   margin-right: 5px;
 }
 
+.login-page form input[type="submit"],
 .signup-page form input[type="submit"] {
   background-color: #4CAF50;
   color: #fff;
@@ -489,6 +438,7 @@ img {
   transition: background-color 0.3s ease;
 }
 
+.login-page form input[type="submit"]:hover,
 .signup-page form input[type="submit"]:hover {
   background-color: #45a049;
 }
@@ -506,4 +456,167 @@ img {
 
 .phone-icon {
   background-position: -30px 0; 
+}
+
+.login-page .login-slider ul.lista {
+  list-style: none;
+}
+
+.login-page .login-slider ul.lista li {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  margin-bottom: 15px;
+}
+
+.login-page .login-slider ul.lista li.active {
+  opacity: 1;
+}
+
+.login-page .login-slider ul.lista li div {
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+
+.login-page .login-slider ul.lista li a {
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+.login-page .login-slider .controls {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-page .login-slider .controls button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  background-color: #007BFF;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-page .login-slider .controls button:hover {
+  background-color: #0056b3;
+}
+
+.slider .controls {
+  display: flex;           /* Transformă containerul într-un flex container */
+  flex-direction: row;     /* Așază elementele pe un rând */
+  justify-content: center; /* Centrare orizontală a butoanelor */
+  align-items: center;     /* Aliniază butoanele și pe verticală */
+  gap: 10px;               /* Spațiere între butoane */
+  margin-top: 20px;        /* Păstrează spațiul de sus */
+}
+
+.vertical-menu .controls {
+  display: flex;           /* Container Flexbox */
+  flex-direction: row;     
+  justify-content: center; 
+  align-items: center;     
+  gap: 10px;               
+  margin-top: 20px;        
+  /* Eventual, setează o lățime mai mare decât 200px, 
+     sau fă meniul responsive */
+}
+.image-slider {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 40px auto 0;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.large-image-container {
+  width: 300px;
+  height: 400px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.4s ease-in-out;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Miniaturi */
+.thumbnails {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.thumbnail {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border 0.3s ease;
+  border: 3px solid transparent;
+  cursor: pointer;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+  border-color: #ff5733;
+}
+
+/* Opțional: poți păstra regulile de hover pentru test, dar slideshow-ul JS va seta imaginea mare */
+.image-slider:has(.thumbnail:nth-child(1):hover) .large-image-container {
+  background-image: url("img1.jpg");
+}
+
+.image-slider:has(.thumbnail:nth-child(2):hover) .large-image-container {
+  background-image: url("img2.jpg");
+}
+
+.image-slider:has(.thumbnail:nth-child(3):hover) .large-image-container {
+  background-image: url("img3.jpg");
+}
+
+.image-slider:has(.thumbnail:nth-child(4):hover) .large-image-container {
+  background-image: url("img4.jpg");
+}
+
+.image-slider:has(.thumbnail:nth-child(5):hover) .large-image-container {
+  background-image: url("img5.jpg");
+}
+
+/* Stiluri pentru zona de controale a slider-ului */
+.slider-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.slider-controls button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slider-controls button:hover {
+  background-color: #0056b3;
+}
+
+.slider-controls label {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
 }

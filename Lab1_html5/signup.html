@@ -123,5 +123,153 @@
       <p>&copy; 2025 Club de Tenis. Toate drepturile rezervate.</p>
     </footer>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      function createStatusIndicator(input) {
+        if (!input.nextElementSibling || !input.nextElementSibling.classList.contains("status-indicator")) {
+          let statusSpan = document.createElement("span");
+          statusSpan.className = "status-indicator";
+          statusSpan.style.marginLeft = "10px";
+          input.parentNode.insertBefore(statusSpan, input.nextSibling);
+        }
+      }
+    
+      function validateInput(input) {
+        const regex = /^[a-z0-9]+$/;
+        let statusSpan = input.nextElementSibling;
+        if (input.value !== "" && regex.test(input.value)) {
+          statusSpan.textContent = "●";
+          statusSpan.style.color = "green";
+        } else {
+          statusSpan.textContent = "●";
+          statusSpan.style.color = "red";
+        }
+      }
+    
+      let usernameInput = document.getElementById("nume");
+      let passwordInput = document.getElementById("prenume");
+    
+      if (usernameInput) {
+        createStatusIndicator(usernameInput);
+        usernameInput.addEventListener("input", function() {
+          validateInput(usernameInput);
+        });
+      }
+      if (passwordInput) {
+        createStatusIndicator(passwordInput);
+        passwordInput.addEventListener("input", function() {
+          validateInput(passwordInput);
+        });
+      }
+    });
+    </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Obținem input-ul de tip email
+    var emailInput = document.getElementById("email");
+  
+    function createStatusIndicator(input) {
+      if (!input.nextElementSibling || !input.nextElementSibling.classList.contains("status-indicator")) {
+        var indicator = document.createElement("span");
+        indicator.className = "status-indicator";
+        indicator.style.marginLeft = "10px";
+        input.parentNode.insertBefore(indicator, input.nextSibling);
+      }
+    }
+  
+    function validateEmail(input) {
+      var regex = /^(?=[^@]*@[^@]*$)(?=.*\.)[a-zA-Z0-9_@.]+$/;
+      var indicator = input.nextElementSibling;
+      
+      // Dacă input-ul nu este gol și se potrivește cu regex-ul, este valid
+      if (input.value !== "" && regex.test(input.value)) {
+        indicator.textContent = "●";
+        indicator.style.color = "green";
+      } else {
+        indicator.textContent = "●";
+        indicator.style.color = "red";
+      }
+    }
+  
+    if (emailInput) {
+      createStatusIndicator(emailInput);
+      emailInput.addEventListener("input", function() {
+        validateEmail(emailInput);
+      });
+    }
+  });
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    let phoneInput = document.getElementById("telefon");
+  
+    function createStatusIndicator(input) {
+      if (!input.nextElementSibling || !input.nextElementSibling.classList.contains("status-indicator")) {
+        let indicator = document.createElement("span");
+        indicator.className = "status-indicator";
+        indicator.style.marginLeft = "10px"; // spațiere între input și indicator
+        input.parentNode.insertBefore(indicator, input.nextSibling);
+      }
+    }
+  
+    function validatePhone(input) {
+      const regex = /^\(\+40\)\s?\d{3}\s?\d{3}\s?\d{3}$/;
+      let indicator = input.nextElementSibling;
+      
+      if (input.value !== "" && regex.test(input.value)) {
+        indicator.textContent = "●";
+        indicator.style.color = "green";
+      } else {
+        indicator.textContent = "●";
+        indicator.style.color = "red";
+      }
+    }
+  
+    // Dacă input-ul există, creăm indicatorul și adăugăm evenimentul "input"
+    if (phoneInput) {
+      createStatusIndicator(phoneInput);
+      phoneInput.addEventListener("input", function() {
+        validatePhone(phoneInput);
+      });
+    }
+  });
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    let passwordInput = document.getElementById("parola");
+  
+    function createStatusIndicator(input) {
+      if (!input.nextElementSibling || !input.nextElementSibling.classList.contains("status-indicator")) {
+        let indicator = document.createElement("span");
+        indicator.className = "status-indicator";
+        indicator.style.marginLeft = "10px";
+        input.parentNode.insertBefore(indicator, input.nextSibling);
+      }
+    }
+  
+    function validatePassword(input) {
+      const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!]).+$/;
+      let indicator = input.nextElementSibling;
+      if (input.value !== "" && regex.test(input.value)) {
+        indicator.textContent = "●";
+        indicator.style.color = "green";
+      } else {
+        indicator.textContent = "●";
+        indicator.style.color = "red";
+      }
+    }
+
+    if (passwordInput) {
+      createStatusIndicator(passwordInput);
+      passwordInput.addEventListener("input", function() {
+        validatePassword(passwordInput);
+      });
+    }
+  });
+  </script>
 </body>
 </html>

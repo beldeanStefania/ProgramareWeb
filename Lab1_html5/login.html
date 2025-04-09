@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
+  <!-- Include Font Awesome pentru iconițe -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="login-page">
@@ -17,37 +19,54 @@
     </header>
     <div class="container">
       <nav class="vertical-menu">
-        <ul>
-          <li><a href="terenuri.html" title="Listă terenuri">Lista Terenuri</a></li>
-          <li class="has-submenu">
-            <a href="rezerva.html" title="Rezervă teren">Rezervă Teren</a>
-            <ul class="submenu">
-              <li><a href="noua_rezervare.html" title="Rezervare nouă">Noua rezervare</a></li>
-              <li><a href="modifica_rezervare.html" title="Modificare rezervare">Modificare rezervare</a></li>
-            </ul>
-          </li>
-          <li><a href="login.html" title="Autentificare">Login</a></li>
-          <li><a href="signup.html" title="Înregistrare">Sign Up</a></li>
-        </ul>
+        <section class="login-slider">
+          <ul class="lista">
+            <li class="active">
+              <div>Lista Terenuri</div>
+              <a href="terenuri.html" title="Listă terenuri">Read more</a>
+            </li>
+            <li>
+              <div>Rezervă Teren</div>
+              <a href="rezerva.html" title="Rezervă teren">Read more</a>
+            </li>
+            <li>
+              <div>Noua rezervare</div>
+              <a href="noua_rezervare.html" title="Rezervare nouă">Read more</a>
+            </li>
+            <li>
+              <div>Modificare rezervare</div>
+              <a href="modifica_rezervare.html" title="Modificare rezervare">Read more</a>
+            </li>
+            <li>
+              <div>Login</div>
+              <a href="login.html" title="Autentificare">Read more</a>
+            </li>
+            <li>
+              <div>Sign Up</div>
+              <a href="signup.html" title="Înregistrare">Read more</a>
+            </li>
+          </ul>
+          <div class="controls">
+            <button id="prev">Previous</button>
+            <button id="next">Next</button>
+          </div>
+        </section>
       </nav>
       <main>
-        <header>
-          <h2>Login</h2>
-        </header>
-        <section>
-          <h3>Formular Login</h3>
+        <section class="login-form">
+          <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
           <form name="loginForm">
             <fieldset>
               <legend><strong>Login</strong></legend>
               
               <p>
-                <label for="username"><strong>Nume de utilizator:</strong></label><br>
-                <input type="text" id="username" name="username" size="20" maxlength="15" value="">
+                <label for="username"><strong><i class="fas fa-user input-icon"></i> Nume de utilizator:</strong></label><br>
+                <input type="text" id="username" name="username" maxlength="15">
               </p>
               
               <p>
-                <label for="password"><strong>Parolă:</strong></label><br>
-                <input type="password" id="password" name="password" size="20" maxlength="12" value="">
+                <label for="password"><strong><i class="fas fa-lock input-icon"></i> Parolă:</strong></label><br>
+                <input type="password" id="password" name="password" maxlength="12">
               </p>
               
               <p>
@@ -71,6 +90,98 @@
         </section>
       </main>
     </div>
+    <footer>
+      <p>&copy; 2025 Club de Tenis. Toate drepturile rezervate.</p>
+    </footer>
+  </div>
+
+  <script>
+    const sliderSection = document.querySelector('.login-slider');
+    if (sliderSection) {
+      const intervalTime = 3000; 
+      const items = sliderSection.querySelectorAll('ul.lista li');
+      let currentIndex = 0;
+      let interval;
+      
+      function showItem(index) {
+        items.forEach((item, idx) => {
+          if (idx === index) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      }
+      
+      function showNext() {
+        currentIndex++;
+        if (currentIndex >= items.length) {
+          currentIndex = 0;
+        }
+        showItem(currentIndex);
+      }
+      
+      function showPrevious() {
+        currentIndex--;
+        if (currentIndex < 0) {
+          currentIndex = items.length - 1;
+        }
+        showItem(currentIndex);
+      }
+      
+      function resetInterval() {
+        clearInterval(interval);
+        interval = setInterval(showNext, intervalTime);
+      }
+      
+      sliderSection.querySelector('#next').addEventListener('click', function() {
+        showNext();
+        resetInterval();
+      });
+      sliderSection.querySelector('#prev').addEventListener('click', function() {
+        showPrevious();
+        resetInterval();
+      });
+      
+      interval = setInterval(showNext, intervalTime);
+    }
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      let passwordInput = document.getElementById("password");
+    
+      function createStatusIndicator(input) {
+        if (!input.nextElementSibling || !input.nextElementSibling.classList.contains("status-indicator")) {
+          let indicator = document.createElement("span");
+          indicator.className = "status-indicator";
+          indicator.style.marginLeft = "10px";
+          input.parentNode.insertBefore(indicator, input.nextSibling);
+        }
+      }
+    
+      function validatePassword(input) {
+        const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!]).+$/;
+        let indicator = input.nextElementSibling;
+        if (input.value !== "" && regex.test(input.value)) {
+          indicator.textContent = "●";
+          indicator.style.color = "green";
+        } else {
+          indicator.textContent = "●";
+          indicator.style.color = "red";
+        }
+      }
   
+      if (passwordInput) {
+        createStatusIndicator(passwordInput);
+        passwordInput.addEventListener("input", function() {
+          validatePassword(passwordInput);
+        });
+      }
+    });
+    </script>
+    
+    
+
 </body>
 </html>
