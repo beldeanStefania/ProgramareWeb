@@ -1,0 +1,96 @@
+.vertical-slider {
+    width: 320px;
+    margin: 40px auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .controls-top,
+  .controls-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .viewport {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #333;
+    border-radius: 6px;
+  }
+  
+  .slides {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .slides li {
+    width: 100%;
+    height: 200px;       /* în JS vom calcula înălțimea reală */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .slides img, .slides video {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .arrow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: rgba(255,255,255,0.8);
+    background: rgba(0,0,0,0.4);
+    padding: 5px 10px;
+    cursor: pointer;
+    display: none;
+    z-index: 10;
+  }
+  
+  .arrow-up   { top: 5px; }
+  .arrow-down { bottom: 5px; }
+  
+  .viewport:hover .arrow {
+    display: block;
+  }
+  
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed; top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.8);
+    z-index: 9999;
+  }
+  .lightbox__backdrop {
+    position: absolute; top:0; left:0; right:0; bottom:0;
+  }
+  .lightbox__inner {
+    position: absolute; top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    max-width: 90%; max-height: 90%;
+    background: #222; border-radius:6px;
+    overflow: hidden; display: flex; flex-direction: column;
+  }
+  .lightbox__close {
+    position: absolute; top:8px; right:12px;
+    background: none; border:none; color:#fff;
+    font-size:24px; cursor:pointer; z-index:2;
+  }
+  .lightbox__content {
+    flex:1; display:flex; align-items:center; justify-content:center;
+    padding:10px;
+  }
+  .lightbox__content img,
+  .lightbox__content video {
+    max-width:100%; max-height:80vh;
+  }
+  .lightbox__caption {
+    padding:8px 12px; color:#ddd;
+    background: rgba(0,0,0,0.3); font-size:14px;
+    text-align:center;
+  }
+  

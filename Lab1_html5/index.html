@@ -4,10 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rezervare Terenuri</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="slider.css">
+  <link rel="stylesheet" href="slider-vertical.css">
+
+  <style>
+    .live-search { position: relative; width: 120px; display: inline-block; vertical-align: middle; }
+    .live-search select { display: none; }
+    .custom-select {
+      border: 1px solid #ccc; padding: 4px 8px; border-radius: 4px;
+      background: #fff; cursor: pointer; user-select: none;
+    }
+    .options-container {
+      position: absolute; top:100%; left:0; right:0;
+      border:1px solid #ccc; background:#fff;
+      max-height:150px; overflow-y:auto; display:none; z-index:100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .options-container .search-box {
+      width:100%; padding:6px; border:none; border-bottom:1px solid #ddd; box-sizing:border-box;
+    }
+    .options-list { list-style:none; margin:0; padding:0; }
+    .options-list li { padding:6px 8px; cursor:pointer; }
+    .options-list li:hover, .options-list li.active { background:#007BFF; color:#fff; }
+  </style>
+  
+
 </head>
 <body>
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox__backdrop"></div>
+    <div class="lightbox__inner">
+      <button class="lightbox__close">&times;</button>
+      <div class="lightbox__content"></div>
+      <div class="lightbox__caption"></div>
+    </div>
+  </div>
+
+
   <div class="wrapper">
     <header>
       <div class="header-content">
@@ -35,30 +71,49 @@
         <h1>Bine ați venit!</h1>
         <p>Acesta este conținutul principal. Puteți naviga folosind meniul din stânga.</p>
 
-        <div class="image-slider">
-          <div class="thumbnails">
-            <div class="thumbnail"><img src="img1.jpg" alt="Thumbnail 1" data-index="0"></div>
-            <div class="thumbnail"><img src="img2.jpg" alt="Thumbnail 2" data-index="1"></div>
-            <div class="thumbnail"><img src="img3.jpg" alt="Thumbnail 3" data-index="2"></div>
-            <div class="thumbnail"><img src="img4.jpg" alt="Thumbnail 4" data-index="3"></div>
-            <div class="thumbnail"><img src="img5.jpg" alt="Thumbnail 5" data-index="4"></div>
+        <div class="vertical-slider">
+          <div class="controls-top">
+            <label>
+              Slide-uri vizibile:
+              <input type="number" id="visibleCount" min="1" max="5" value="3">
+            </label>
+            <label>
+              Interval (sec):
+              <input type="number" id="intervalSec" min="1" value="3">
+            </label>
           </div>
-          <div class="large-image-container"></div>
-          <div class="slider-controls">
+          
+        
+          <div class="viewport">
+            
+            <ul class="slides">
+              <li><img src="img1.jpg" alt="">
+                <div class="hidden-content" style="display:none">
+                  <h3>Detalii despre imaginea 1</h3>
+                  <p>Aici un text sau orice alt HTML.</p>
+                </div>
+              </li>
+              <li><img src="img2.jpg" alt="">
+                div class="hidden-content" style="display:none">
+                  <h3>Detalii despre imaginea 1</h3>
+                  <p>Aici un text sau orice alt HTML.</p>
+                </div>
+              </li>
+              <li><video src="video1.mp4" muted></video></li>
+              <li><img src="img3.jpg" alt=""></li>
+              <li><img src="img4.jpg" alt=""></li>
+              <!-- mai multe <li> după necesitate -->
+            </ul>
+            <div class="arrow arrow-up">&#9650;</div>
+            <div class="arrow arrow-down">&#9660;</div>
+          </div>
+        
+          <div class="controls-bottom">
             <button id="playPause">Play</button>
-            <label>
-              <input type="checkbox" id="repeat"> Repetă
-            </label>
-            <label>
-              Interval:
-              <select id="intervalSelect">
-                <option value="2000">2 secunde</option>
-                <option value="3000" selected>3 secunde</option>
-                <option value="5000">5 secunde</option>
-              </select>
-            </label>
+            <label><input type="checkbox" id="repeat"> Repetă</label>
           </div>
         </div>
+        
       </main>
     </div>
     <footer>
